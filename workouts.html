@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Workout Detail</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -24,13 +26,63 @@
       <div class="nav-center">
         <a href="index.html" class="logo">PT HUB</a>
         <ul class="nav-links" id="mobileNavLinks">
-          <li><a href="#">CLASSES</a></li>
-          <li><a href="#">BEHIND THE BRAND</a></li>
+          <li><a href="blog-articles.html">CLASSES</a></li>
+          <li><a href="behind-brand.html">BEHIND THE BRAND</a></li>
           <li><a href="workouts.html">WORKOUTS</a></li>
         </ul>
       </div>
       <!-- ... -->
     </nav>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <div class="progress-tracker" id="tracker">
+      <div class="tracker-controls">
+        <button class="tracker-btn active" data-type="run">Run</button>
+        <button class="tracker-btn" data-type="ski">SkiErg</button>
+        <button class="tracker-btn" data-type="row">Row</button>
+        <button class="tracker-btn" data-type="weights">Weights</button>
+      </div>
+
+      <div class="chart-scroll" id="chartScroll">
+        <div class="chart-wrapper">
+          <canvas id="progressChart"></canvas>
+        </div>
+      </div>
+
+      <form id="logForm" class="log-form">
+        <input
+          type="number"
+          id="workoutValue"
+          class="log-input"
+          placeholder="Enter time or kg"
+          step="0.01"
+        />
+        <input
+          type="number"
+          id="workoutDistance"
+          class="log-input"
+          placeholder="Distance (km) "
+          step="0.01"
+        />
+        <button type="submit" class="log-btn">Log</button>
+      </form>
+
+      <div id="paceSummary" class="pace-summary"></div>
+      <button
+        type="button"
+        id="undoBtn"
+        class="log-btn"
+        style="background: #e6c200"
+      >
+        Undo Last
+      </button>
+    </div>
 
     <!-- Workout Sessions -->
     <div class="main-content">
@@ -121,7 +173,7 @@
 
       <div
         class="session-card"
-        onclick="window.location.href='saturday-hyrox.html?name=HYROX SATURDAY'"
+        onclick="window.location.href='SATURDAY-HYROX.html?name=HYROX SATURDAY'"
       >
         <div class="card-header">
           <h3>HYROX SATURDAY</h3>
